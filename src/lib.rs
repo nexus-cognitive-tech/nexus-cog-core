@@ -31,3 +31,24 @@ pub use indexmap;
 pub use serde;
 pub use serde_json;
 pub use uuid;
+
+// Flat re-exports so downstream crates can write `nexus_cog_core::TypeName`.
+pub use antifragile::*;
+pub use architect::*;
+pub use causal::*;
+pub use cognitive::*;
+pub use common::*;
+pub use diff::*;
+pub use graph::*;
+pub use hypothesis::*;
+pub use intent::*;
+pub use learner::*;
+pub use memory::*;
+pub use palace::*;
+pub use patterns::*;
+pub use predictor::*;
+pub use provenance::*;
+pub use risk::*;
+pub use search::*;
+pub use thought::*;
+pub use verification::*;
