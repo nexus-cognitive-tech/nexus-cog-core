@@ -1,0 +1,33 @@
+[package]
+name = "nexus-cog-core"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Nexus Cog core — shared types, storage abstractions and runtime configuration"
+license = "Apache-2.0"
+repository = "https://github.com/nexus-cognitive-tech/nexus-cog-core"
+homepage = "https://github.com/nexus-cognitive-tech"
+authors = ["Nexus Cognitive Technologies"]
+keywords = ["cognition", "memory", "graph", "provenance", "agent"]
+categories = ["data-structures", "development-tools", "encoding"]
+readme = "README.md"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+indexmap = { version = "2", features = ["serde"] }
+smallvec = { version = "1", features = ["serde"] }
+chrono = { version = "0.4", features = ["serde", "clock"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+sha2 = "0.10"
+tracing = "0.1"
+parking_lot = "0.12"
+toml = "0.8"
+dirs = "5"
+directories = "5"
+
+[dev-dependencies]
+serde_json = "1"
+pretty_assertions = "1"
+tempfile = "3"
