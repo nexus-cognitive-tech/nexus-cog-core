@@ -50,5 +50,6 @@ pub use predictor::*;
 pub use provenance::*;
 pub use risk::*;
 pub use search::*;
+pub use store::{JsonStore, StoreConfig};
 pub use thought::*;
 pub use verification::*;
