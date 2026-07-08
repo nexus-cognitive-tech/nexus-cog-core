@@ -85,6 +85,9 @@ pub struct MemoryEntry {
 
 impl MemoryEntry {
     /// Construct a new memory entry.
+    ///
+    /// `last_accessed` is initialised to the current Unix timestamp so the
+    /// entry is **not** eligible for TTL pruning on its first decay pass.
     #[must_use]
     pub fn new(
         key: impl Into<String>,
@@ -98,7 +101,7 @@ impl MemoryEntry {
             category,
             importance: importance.clamp(0.0, 1.0),
             access_count: 0,
-            last_accessed: 0,
+            last_accessed: chrono::Utc::now().timestamp(),
             tags: Vec::new(),
             id: uuid::Uuid::new_v4().to_string(),
             created_at: chrono::Utc::now(),

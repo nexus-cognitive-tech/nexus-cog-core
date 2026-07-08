@@ -67,6 +67,9 @@ pub struct MemoryItem {
 
 impl MemoryItem {
     /// Construct a new memory item.
+    ///
+    /// `last_accessed` is initialised to the current Unix timestamp so the item
+    /// is **not** immediately eligible for TTL pruning on its first decay pass.
     #[must_use]
     pub fn new(key: impl Into<String>, value: impl Into<String>, confidence: f32) -> Self {
         Self {
@@ -75,7 +78,7 @@ impl MemoryItem {
             value: value.into(),
             confidence: confidence.clamp(0.0, 1.0),
             access_count: 0,
-            last_accessed: 0,
+            last_accessed: chrono::Utc::now().timestamp(),
             tags: Vec::new(),
         }
     }
