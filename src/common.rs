@@ -381,6 +381,14 @@ impl Confidence {
     pub fn is_uncertain(self, threshold: f32) -> bool {
         self.0 < threshold
     }
+
+    /// Alias of [`Self::value`] preserved for backward compatibility with
+    /// downstream crates that were compiled against the historical
+    /// `score()` API.
+    #[must_use]
+    pub const fn score(self) -> f32 {
+        self.value()
+    }
 }
 
 impl Default for Confidence {
